@@ -1,6 +1,8 @@
 <?php
   // Create a login.php page that has a basic login form (username, password, submit)
  session_start();
+
+ require_once ('user.php');
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,6 +16,14 @@
       if(isset($_SESSION['failed_attempts']) && $_SESSION['failed_attempts'] > 0 ) {
         echo "This is unsuccessful attempt number: " . $_SESSION['failed_attempts'] . "<br><br>";
       }
+
+    // test print user list from database
+    $user = new User();
+    $user_list = $user->get_all_users();
+
+    echo "<pre>";
+    print_r($user_list);
+    
     ?>
     <form action="/validate.php" method="post">
       <label for="username">Username:</label>

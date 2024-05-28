@@ -1,9 +1,9 @@
 <?php
 // set database connection info
-defind('DB_HOST', 'n3s.h.filess.io');
-defind('DB_USER', 'cosc4806_smallpick');
-defind('DB_PASS', $ENV['DB_PASS']);
-defind('DB_DATABASE', 'cosc4806_smallpick');
-defind('DB_PORT', '3306');
+define('DB_HOST',     'n3s.h.filess.io');
+define('DB_USER',     'cosc4806_smallpick');
+define('DB_PASS',     $_ENV['DB_PASS']);
+define('DB_DATABASE', 'cosc4806_smallpick');
+define('DB_PORT',     '3305');
 
 ?>
