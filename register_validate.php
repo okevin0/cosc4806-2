@@ -10,7 +10,7 @@
   
   $user = new User();
   $check_user = $user->get_user_by_username($username);
-
+  // print_r($check_user);
   // check password match and need to meet a minimum security standard
   if ($password != $confirm_password) {
     $_SESSION['diff_password'] = 1;
@@ -23,14 +23,14 @@
   }
 
   // Check to see if the account name exists already
-  if ($check_user > 0) {
+  if (!empty($check_user)) {
     // if user exist, redirect to regiser page
     $_SESSION['user_exist'] = 1;
     header('location: /register.php');
   }
 
   // create new user when pass the condition 
-  if($password == $confirm_password && strlen($password) > 7 && $check_user == 0) {
+  if($password == $confirm_password && strlen($password) > 7 && empty($check_user)) {
     $user->create_user($username, $password);
     // redirect to login page
     header('location: /login.php');

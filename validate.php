@@ -1,22 +1,22 @@
 <?php
 
   session_start();
-
-  // The goal is to have a functional login form. You can hardcode username and password
-  $valid_username = "shuming";
-  $valid_password = "password";
+  require_once ('user.php');
 
   $username = $_REQUEST['username'];
   $_SESSION['username'] = $username;
   $password = $_REQUEST['password'];
 
+  //Modify your login code so it is no longer hard-coded and the user should be able to login with their account details
+  $user = new User();
+  $check_password = $user->get_user_by_username($username);
+  // echo $check_password['password'];
+
   // If the username and password are correct then take them to index.php and display their username (welcome, NAME) with the current date (formatted in a readable way)
   // If they log in successfully, set a session variable 'authenticated' to true (or 1)
-  if ($valid_username == $username && $valid_password == $password ) {
-    
+  if (!empty($check_password) && $check_password['password'] == $password) {
     $_SESSION['authenticated'] = 1;
     header ('location: /');
-    
   } else {
     
     // Implement session variables and for every failed login attempt, keep track of it in a session variable
