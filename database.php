@@ -9,6 +9,7 @@
         return $dbh;
       } catch (PDOException $e)  {
         // we should set a global variable here so we know the DB is down
+        echo "Database Connection Failed.";
   
       }
   }
