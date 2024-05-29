@@ -36,6 +36,7 @@
       <br><br>
       <input type="submit" value="Submit">
     </form> 
-    
+
+    <a href="/register.php">Create New Account</a>
   </body>
 </html>
