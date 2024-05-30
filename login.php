@@ -18,11 +18,11 @@
       }
 
     // test print user list from database
-    $user = new User();
-    $user_list = $user->get_all_users();
+    // $user = new User();
+    // $user_list = $user->get_all_users();
 
-    echo "<pre>";
-    print_r($user_list);
+    // echo "<pre>";
+    // print_r($user_list);
     
     ?>
     <form action="/validate.php" method="post">

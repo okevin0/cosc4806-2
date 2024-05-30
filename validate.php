@@ -14,7 +14,7 @@
 
   // If the username and password are correct then take them to index.php and display their username (welcome, NAME) with the current date (formatted in a readable way)
   // If they log in successfully, set a session variable 'authenticated' to true (or 1)
-  if (!empty($check_password) && $check_password['password'] == $password) {
+  if (!empty($check_password) && password_verify($password,$check_password['password'])) {
     $_SESSION['authenticated'] = 1;
     header ('location: /');
   } else {

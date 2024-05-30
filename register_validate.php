@@ -30,8 +30,11 @@
   }
 
   // create new user when pass the condition 
-  if($password == $confirm_password && strlen($password) > 7 && empty($check_user)) {
-    $user->create_user($username, $password);
+  if($password == $confirm_password && strlen($password) > 7 && empty($check_user)) { 
+    // hash password, then save to database
+    $hash = password_hash($password, PASSWORD_DEFAULT);
+    $user->create_user($username, $hash);
+
     // redirect to login page
     header('location: /login.php');
   }
